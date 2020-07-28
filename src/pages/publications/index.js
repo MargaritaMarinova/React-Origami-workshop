@@ -1,14 +1,18 @@
-import React from 'react';
+import React from 'react'
 import styles from './index.module.css'
+import PageLayout from '../../components/page-layout'
+import Title from '../../components/title'
 import Origamis from '../../components/origamis'
-import PageWrapper from '../../components/page-wrapper'
+
 
 const Publications = () => {
-  return (
-    <PageWrapper>
-      <Origamis />
-    </PageWrapper>
-  );
-};
 
-export default Publications;
+     return (
+        <PageLayout>
+              <Title title = "Publications"/>
+              <Origamis />
+        </PageLayout>
+      )
+  }
+
+export default Publications

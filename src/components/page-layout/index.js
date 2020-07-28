@@ -4,17 +4,19 @@ import styles from './index.module.css'
 import Aside from '../aside'
 import Footer from '../footer'
 
-const PageWrapper = (props) => {
+const PageLayout = (props) => {
   return (
     <div className={styles.app}>
     <Header />  
     <div className = {styles.container}>
       <Aside />
+      <div className = {styles['inner-container']}>
       {props.children}
+      </div>
     </div>
     <Footer />
-    </div>
-  );
-};
+  </div>
+  )
+}
 
-export default PageWrapper;
+export default PageLayout;
