@@ -1,0 +1,13 @@
+.error-message{
+    width: 83%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.error-image{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
