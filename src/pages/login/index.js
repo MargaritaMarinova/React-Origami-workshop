@@ -11,40 +11,65 @@ class LoginPage extends Component {
         super(props)
 
         this.state={
-            email: "",
+            username: "",
             password: ""
         }
     }
 
-    onChange = (event, type) => {
+    handleChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
         this.setState(newState)
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const {
+            username,
+            password
+        } = this.state
+
+    fetch('http://localhost:9999/api/user/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            username,
+            password
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(promise => {
+        console.log(promise)
+        return promise.json()
+    }).then(data => {
+        console.log(data)
+    })
+    }
+
     render () {
         const {
-            email,
+            username,
             password
         } = this.state
     return (
         <PageLayout>
-        <div className = {styles.container}>
+        <form className = {styles.container} onSubmit = {this.handleSubmit}>
             <Title title = "Login Page" />
             <Input
-            value={email}
-            onChange = {(e) => this.onChange(e, 'email')}
-            label="Email"
-            id="email"
+            value={username}
+            onChange = {(e) => this.handleChange(e, 'username')}
+            label="Username"
+            id="username"
             />
             <Input
+            type="password"
             value={password}
-            onChange = {(e) => this.onChange(e, 'password')}
+            onChange = {(e) => this.handleChange(e, 'password')}
             label="Password"
             id="password"
             />
                         
-        </div>
+        </form>
         <div>
         <SubmitButton title = "Login" />
         </div>
