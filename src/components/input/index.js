@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from './index.module.css'
 
-const Input = ({ label, id, value, onChange}) => {
+const Input = ({ label, id, value, onChange, type}) => {
 
     return (
-        <div className={styles.container}>
+        <div className = {styles.container}>
             <label htmlFor={id}>
                 {label}:
-                <input className = {styles.input} id={id} value={value} onChange={onChange}/>
+                <input type={type || 'text'} id={id} value={value} onChange={onChange}/>
             </label>
         </div>
     )

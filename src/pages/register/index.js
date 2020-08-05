@@ -11,7 +11,7 @@ class RegisterPage extends Component {
         super(props)
 
         this.state={
-            email: "",
+            username: "",
             password: "",
             rePassword: ""
         }
@@ -25,7 +25,7 @@ class RegisterPage extends Component {
 
     render () {
         const {
-            email,
+            username,
             password,
             rePassword
         } = this.state
@@ -34,10 +34,10 @@ class RegisterPage extends Component {
         <div className = {styles.container}>
             <Title title = "Register Page" />
             <Input
-            value={email}
-            onChange = {(e) => this.onChange(e, 'email')}
-            label="Email"
-            id="email"
+            value={username}
+            onChange = {(e) => this.onChange(e, 'username')}
+            label="Username"
+            id="username"
             />
             <Input
             value={password}
